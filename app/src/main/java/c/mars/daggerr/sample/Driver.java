@@ -25,10 +25,6 @@ public class Driver {
         Log.d(TAG, Driver.class.getSimpleName()+" "+this.name+" constructor");
     }
 
-    public void changeName(String name) {
-        this.name = name;
-    }
-
     public void chooseCar(Car car) {
         this.car = car;
     }

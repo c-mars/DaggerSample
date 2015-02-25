@@ -19,6 +19,9 @@ public class Car {
     @Inject
     Lazy<Gas> gas;
 
+    @Inject
+    Driver driver;
+
     private String model;
 
     @Inject
@@ -26,6 +29,15 @@ public class Car {
         this.model = "Ford";
         Log.d(TAG, Car.class.getSimpleName()+" constructor");
     }
+
+//    can't do this for now
+//    @Inject
+//    public Car(Driver driver) {
+//        this.driver = driver;
+//        this.driver.chooseCar(this);
+//        this.model = "Ford";
+//        Log.d(TAG, Car.class.getSimpleName()+" constructor");
+//    }
 
     public String getModel() {
         return model;
