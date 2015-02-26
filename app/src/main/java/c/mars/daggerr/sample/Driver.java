@@ -20,8 +20,8 @@ public class Driver {
     private Car car;
 
     @Inject
-    public Driver() {
-        this.name = NAMES[new Random().nextInt(3)];
+    public Driver(String name) {
+        this.name = name;
         Log.d(TAG, Driver.class.getSimpleName()+" "+this.name+" constructor");
     }
 

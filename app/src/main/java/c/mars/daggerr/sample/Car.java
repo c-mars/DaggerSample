@@ -12,38 +12,29 @@ import dagger.Lazy;
 public class Car {
     private static final String TAG = Car.class.getSimpleName();
 
-    public Lazy<Gas> getGas() {
-        return gas;
+    Gas gas;
+
+    public Driver getDriver() {
+        return driver;
     }
 
-    @Inject
-    Lazy<Gas> gas;
-
-    @Inject
     Driver driver;
-
     private String model;
 
     @Inject
-    public Car() {
+    public Car(Driver driver, Gas gas) {
+        this.driver = driver;
+        this.gas = gas;
+        this.driver.chooseCar(this);
         this.model = "Ford";
         Log.d(TAG, Car.class.getSimpleName()+" constructor");
     }
-
-//    can't do this for now
-//    @Inject
-//    public Car(Driver driver) {
-//        this.driver = driver;
-//        this.driver.chooseCar(this);
-//        this.model = "Ford";
-//        Log.d(TAG, Car.class.getSimpleName()+" constructor");
-//    }
 
     public String getModel() {
         return model;
     }
 
     public void go() {
-        Log.d(TAG, model+" goes on gas \""+gas.get().getName()+"\"");
+        Log.d(TAG, model+" goes on gas \""+gas.getName()+"\"");
     }
 }
